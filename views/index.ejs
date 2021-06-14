@@ -1,0 +1,34 @@
+<%- include("partials/header") %>
+
+<div class="ui main text container">
+    <div class="ui huge header">Task Manager App</div>
+    <div class="ui top attached segment">
+        <div class="ui divided items">
+            <% tasks.forEach(function(task){ %>
+                <div class="item">
+                    <div class="content">
+                        <a class="header" href="/task/<%= task._id %>"><%= task.title %></a>
+                        <div class="meta">
+                            <span>
+                                <%= task.created.toDateString() %>
+                            </span>
+                        </div>
+                        <div class="description">
+                            <p>
+                                <%- task.body.substring(0,100) %>...
+                            </p>
+                        </div>
+                        <div class="extra">
+                            <a class="ui floated inverted green button" href="/task/<%= task._id %>"><!-- <%= task.title %> -->
+                                Read More
+                                <i class="right small chevron icon"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>            
+        </div>
+    </div>
+</div>
+
+<%- include("partials/footer") %>

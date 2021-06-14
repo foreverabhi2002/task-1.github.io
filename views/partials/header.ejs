@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TaskApp</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/app.css">
+</head>
+<body>
+    <div class="ui fixed inverted menu">
+        <div class="ui container">
+            <div class="header item"><i class="code icon"></i>Task</div>
+            <a href="/" class="item">Home</a>
+            <a href="/task/new" class="item">New Task</a>
+            <% if(!currentUser){ %>
+                <a href="/register" class="ui right item">Sign In</a>
+                <a href="/login" class="item">Log In</a>
+            <% } else { %>
+                <a href="#" class="ui right item"><%- currentUser.username %></a></li>
+                <a href="/logout" class="item">Log Out</a></li>
+            <% } %>
+        </div>
+    </div>

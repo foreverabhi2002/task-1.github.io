@@ -1,0 +1,22 @@
+<%- include("partials/header") %>
+
+<section id="login" class="ui container-fluid">
+    <div class="ui main text container segment">
+        <div class="ui huge header">Log In</div>
+        <form class="ui form" action="/login" method="POST">
+            <div class="field">
+                <label>Username</label>
+                <input type="text" name="username" placeholder="Username">
+            </div>
+            <div class="field">
+                <label>Password</label>
+                <input type="password" name="password" placeholder="Password">
+            </div>
+            <input class="ui secondary big inverted button" type="submit"> 
+        </form>
+        <a href="/task">Go Back</a>
+        <p>Do Not Have An Account? <a href="/register">Click Here</a></p> 
+    </div>
+</section>
+
+<%- include("partials/footer") %>
