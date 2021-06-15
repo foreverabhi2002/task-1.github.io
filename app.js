@@ -6,6 +6,7 @@ const express               = require("express"),
       passport              = require("passport"),
       LocalStrategy         = require("passport-local"),
       passportLocalMongoose = require("passport-local-mongoose"),
+      passportOneSessionPerUser = require("passport-one-session-per-user"),
       User                  = require("./models/user"),
       Task                  = require("./models/task"),
       app                   = express(),
@@ -34,6 +35,8 @@ app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+passport.use(new passportOneSessionPerUser());
+app.use(passport.authenticate("passport-one-session-per-user"));
 
 app.use(function(req,res,next)
 {
